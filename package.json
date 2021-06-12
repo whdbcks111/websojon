@@ -1,0 +1,35 @@
+{
+  "name": "2021-web-sojon",
+  "version": "1.0.0",
+  "description": "0. 개요\r    - [설문조사](https://forms.gle/K8pzQoi6f4SU9ag67)\r 1. HTML\r 2. CSS\r 3. SCSS\r 4. Javascript\r 5. Typescript\r 6. Node JS\r 7. React JS\r 8. JSX\r 9. 컴포넌트의 종류\r 10. Props와 State\r 11. 조건부 렌더링\r 12. Form 관리",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run common": "node ./commonjs/example.js",
+    "run es6": "node --es-module-specifier-resolution=node ./ex6/example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dudco/2021-web-sojon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dudco/2021-web-sojon/issues"
+  },
+  "homepage": "https://github.com/dudco/2021-web-sojon#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@types/lodash": "^4.14.170",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
