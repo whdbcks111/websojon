@@ -18,9 +18,14 @@ function TodoItem(props: TodoItemProps) {
       <div>{props.name}</div>
       <div>
         <span>{props.checkedDate}</span>
-        <button onClick={e => {
-          props.onCheck(e, props.idx);
-        }} style={props.checked ? checkedStyle: uncheckedStyle}>{props.checked ? "O": "V"}</button>
+        <button 
+          onClick={e => {
+            props.onCheck(e, props.idx);
+          }} 
+          style={props.checked ? checkedStyle: uncheckedStyle}
+        >
+          {props.checked ? "O": "V"}
+        </button>
         <button onClick={e=>{
           props.onDelete(props.idx);
         }}>X</button>

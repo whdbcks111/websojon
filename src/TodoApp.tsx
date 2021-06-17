@@ -32,6 +32,7 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(this.state.newTodo.length == 0) return;
     const items = this.state.todoItems.concat({content: this.state.newTodo, isChcked: false, date: ""});
 
     this.setState({
@@ -47,8 +48,6 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
       todoItems: this.state.todoItems,
       newTodo: "",
     })
-
-    console.log(this);
   }
 
   check = (e: React.MouseEvent<HTMLButtonElement>, idx: number) => {
