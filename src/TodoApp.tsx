@@ -2,9 +2,15 @@ import React from "react";
 import TodoItem from "./components/TodoItem";
 import './TodoApp.css';
 
+interface ItemContent {
+  content: string,
+  isChcked: boolean,
+  date: string
+}
+
 interface TodoAppProps {}
 interface TodoAppState {
-  todoItems: string[];
+  todoItems: ItemContent[];
   newTodo: string;
 }
 
@@ -26,7 +32,7 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const items = this.state.todoItems.concat(this.state.newTodo)
+    const items = this.state.todoItems.concat({content: this.state.newTodo, isChcked: false, date: ""});
 
     this.setState({
       todoItems: items,
@@ -45,6 +51,16 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
     console.log(this);
   }
 
+  check = (e: React.MouseEvent<HTMLButtonElement>, idx: number) => {
+    const result = !this.state.todoItems[idx].isChcked;
+    this.state.todoItems[idx].isChcked = result;
+    if(result)
+      this.state.todoItems[idx].date = new Date().toLocaleString() + "에 완료함";
+    else
+      this.state.todoItems[idx].date = "";
+    this.setState({todoItems: this.state.todoItems});
+  }
+
   render() {
     return (
       <div>
@@ -61,10 +77,13 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
           {
             this.state.todoItems.map((item, idx) => (
               <TodoItem 
-              name={item}
-              key={idx} 
-              idx={idx} 
+              name={item.content}
+              key={idx}
+              idx={idx}
               onDelete={this.delete}
+              onCheck={this.check}
+              checked={item.isChcked}
+              checkedDate={item.date}
               />
             ))
           }
