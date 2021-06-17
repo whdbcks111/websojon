@@ -66,9 +66,11 @@ class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
       <div>
         <h3>TODO</h3>
         <form onSubmit={this.handleSubmit}>
-          <div>Input your what TO DO.</div>
+          <div>당신이 <b>할 일</b>을 입력하세요.<br/>Input your what <b>TO DO</b>.</div>
           <br />
-          <input type="text" id="new-todo" value={this.state.newTodo} onChange={this.handleNewTodo} /> <br />
+          <input type="text" id="new-todo" value={this.state.newTodo}
+            onChange={this.handleNewTodo} style={{marginBottom: this.state.newTodo.length == 0? '0': '40px'}}/>
+          <div style={{display: this.state.newTodo.length == 0 ? "block": "none"}}>빈 칸을 채워주세요.</div>
           <button>Add #{this.state.todoItems.length + 1}</button>
         </form>
         <br />
