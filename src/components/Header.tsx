@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const HeaderWrapper = styled.div<{height: number}>`
     width: 100vw;
+    min-width: 1250px;
     height: ${(props)=>props.height}px;
     display: flex;
     flex-direction: column;
